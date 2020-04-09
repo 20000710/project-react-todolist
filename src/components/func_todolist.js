@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Home from './Home';
-import '../App.css';
 
 function Todolist() {
     const [Input, setInput] = useState({
@@ -47,8 +46,8 @@ function Todolist() {
             {TodoList.map((item, index) =>(
                 <div className="list">
                 <li key={index}>{item}
-                <button onClick={() => {handleDelete(index)}}>DELETE</button>
-                <button onClick={() => {handleEdit(index)}}>Edit</button>
+                <button style={{marginLeft: "20px"}} onClick={() => {handleDelete(index)}}>DELETE</button>
+                <button style={{marginLeft: "20px"}} onClick={() => {handleEdit(index)}}>Edit</button>
                 </li>
                 </div>
             ))}
