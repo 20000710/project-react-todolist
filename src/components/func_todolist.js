@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Home from './Home';
+import '../App.css';
 
 function Todolist() {
     const [Input, setInput] = useState({
