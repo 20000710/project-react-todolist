@@ -26,6 +26,15 @@ function Todolist() {
         setTodoList(list);
     }
 
+    const handleEdit = (index) =>{
+        const list = [...TodoList];
+        const editLists = list[index];
+        
+        const editList = prompt(editLists);
+        list.splice(index, 1, editList)
+        setTodoList(list);
+    }
+
     return (
         <div>
             <Home/>
@@ -36,8 +45,10 @@ function Todolist() {
             
             {TodoList.map((item, index) =>(
                 <div className="list">
-                <li key={index}>{item}<button onClick={handleDelete}>DELETE</button></li>
-                
+                <li key={index}>{item}
+                <button onClick={() => {handleDelete(index)}}>DELETE</button>
+                <button onClick={() => {handleEdit(index)}}>Edit</button>
+                </li>
                 </div>
             ))}
             

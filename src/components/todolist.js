@@ -35,10 +35,11 @@ class Todo extends Component {
 
   handleEdit = (index) =>{
     const list = this.state.todoList
-    const editLists = list[index].text;
+    const editLists = list[index]
+    console.log(editLists)
 
     const editList = prompt(editLists);
-    list.splice(index, 1, {text: editList});
+    list.splice(index, 1, editList);
     this.setState(list)
   }
 
@@ -55,8 +56,8 @@ class Todo extends Component {
         {this.state.todoList.map((item, index) => (
         <div className="list">
           <li key={index}>{item}
-            <button style={{marginLeft: "20px"}} onClick={this.handleDelete}>DELETE</button>
-            <button style={{marginLeft: "20px"}} onClick={this.handleEdit}>EDIT</button>
+            <button style={{marginLeft: "20px"}} onClick={() => {this.handleDelete(index)}}>DELETE</button>
+            <button style={{marginLeft: "20px"}} onClick={() =>{this.handleEdit(index)}}>EDIT</button>
           </li>
         </div>
         ))}
