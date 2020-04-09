@@ -1,12 +1,9 @@
 .App {
-  display: flex;
   flex-direction: column;
   text-align: center;
   font-family: Calibri Light;
   color: white;
-  justify-content: center;
-}
-
+} 
 
 input[type="text"]{
   width: 200px;
@@ -14,19 +11,21 @@ input[type="text"]{
 }
 
 li{
+  justify-content: center;
+  display: flex;
+  text-align: left;
   margin-top: 20px;
   font-size: 20px;
 }
 
 h1{
-  margin-top: 20px;
+  margin-top: 70px;
 }
 
 ul{
   display: flex;
-  width: 40%;
-  align-items: flex-start;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
 }
 
 button{

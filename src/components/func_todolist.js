@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Home from './Home';
 
 function Todolist() {
     const [Input, setInput] = useState({
@@ -27,6 +28,7 @@ function Todolist() {
 
     return (
         <div>
+            <Home/>
             <h1>Function Based</h1>
             <input type="text" name="todoInput" value={Input.todoInput} onChange={handleChange}/>
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Home from './Home';
 
 class Todo extends Component {
   constructor(){
@@ -27,8 +28,17 @@ class Todo extends Component {
   }
 
   handleDelete = (index) =>{
-    const list = this.state.todoList;
+    const list = this.state.todoList
     list.splice(index, 1)
+    this.setState(list)
+  }
+
+  handleEdit = (index) =>{
+    const list = this.state.todoList
+    const editLists = list[index].text;
+
+    const editList = prompt(editLists);
+    list.splice(index, 1, {text: editList});
     this.setState(list)
   }
 
@@ -36,7 +46,7 @@ class Todo extends Component {
 
     return (
       <div>
-        <h1>Todo List</h1>
+        <Home/>
         <h1>Class Based</h1>
         <input type="text" name="todoInput" value={this.state.todoInput} onChange={(event) => this.handleChange(event, "hallo")} />
         
@@ -44,7 +54,10 @@ class Todo extends Component {
         
         {this.state.todoList.map((item, index) => (
         <div className="list">
-          <li key={index}>{item} <button onClick={this.handleDelete}>DELETE</button></li>
+          <li key={index}>{item}
+            <button style={{marginLeft: "20px"}} onClick={this.handleDelete}>DELETE</button>
+            <button style={{marginLeft: "20px"}} onClick={this.handleEdit}>EDIT</button>
+          </li>
         </div>
         ))}
         
